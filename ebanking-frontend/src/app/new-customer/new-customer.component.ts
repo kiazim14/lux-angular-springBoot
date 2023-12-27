@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {Customer} from "../model/customer.model";
 import {CustomerService} from "../services/customer.service";
 import {Router} from "@angular/router";
@@ -10,8 +10,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./new-customer.component.css']
 })
 export class NewCustomerComponent implements OnInit {
-  newCustomerFormGroup! : FormGroup;
-  constructor(private fb : FormBuilder,private customerService:CustomerService,private router:Router) { }
+  newCustomerFormGroup! : UntypedFormGroup;
+  constructor(private fb : UntypedFormBuilder,private customerService:CustomerService,private router:Router) { }
 
   ngOnInit(): void {
     this.newCustomerFormGroup=this.fb.group({

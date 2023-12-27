@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {CustomerService} from "../services/customer.service";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Customer} from "../model/customer.model";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
 @Component({
@@ -14,8 +14,8 @@ import {Router} from "@angular/router";
 export class CustomersComponent implements OnInit {
   customers! : Observable<Array<Customer>>;
   errorMessage! : string;
-  searchformGroup : FormGroup | undefined;
-  constructor(private customerService:CustomerService,private fb :  FormBuilder,private router : Router) { }
+  searchformGroup : UntypedFormGroup | undefined;
+  constructor(private customerService:CustomerService,private fb :  UntypedFormBuilder,private router : Router) { }
 
   ngOnInit(): void {
     this.searchformGroup=this.fb.group({

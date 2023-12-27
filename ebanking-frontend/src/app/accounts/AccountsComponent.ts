@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup } from "@angular/forms";
 import { AccountsService } from "../services/accounts.service";
 import { catchError, Observable, throwError } from "rxjs";
 import { AccountDetails } from "../model/account.model";
@@ -11,13 +11,13 @@ import { AccountDetails } from "../model/account.model";
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
-  accountFormGroup!: FormGroup;
+  accountFormGroup!: UntypedFormGroup;
   currentPage: number = 0;
   pageSize: number = 5;
   accountObservable!: Observable<AccountDetails>;
-  operationFormGroup!: FormGroup;
+  operationFormGroup!: UntypedFormGroup;
   errorMessage!: string;
-  constructor(private fb: FormBuilder, private accountService: AccountsService) { }
+  constructor(private fb: UntypedFormBuilder, private accountService: AccountsService) { }
 
   ngOnInit(): void {
     this.accountFormGroup = this.fb.group({
