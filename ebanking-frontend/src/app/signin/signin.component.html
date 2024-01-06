@@ -1,1 +1,54 @@
-<h2>Login</h2>
+<div class="row h-10 justify-content-center align-items-center">
+  <div class="col-lg-6">
+    <div class="container">
+      <form *ngIf="!isLoggedIn" class="form" [formGroup]="signInForm" (ngSubmit)="onSubmitSignInForm()">
+              <div class="card w-75">
+                  <div class="card-header bg-primary text-white">
+                      <h1>LOGIN</h1>
+                  </div>
+                  <div class="card-body">
+                      <div class="form-group">
+                          <div class="col col-sm-12">
+                              <i class="fa-regular fa-envelope"></i><label for="email" class="pl-1">Email: </label>
+                              <input type="text" id="email" formControlName="email" placeholder="Enter email"
+                                  class="form-control form-control-sm">
+                              <ng-container *ngIf="email.invalid && email.touched">
+                                  <ng-container *ngIf="email?.errors?.required">
+                                      <span class="text-danger" style="font-size: 14px;margin: 5px;">Email
+                                          required</span>
+                                  </ng-container>
+                                  <ng-container *ngIf="email?.errors?.email">
+                                      <span class="text-danger pt-2">Enter valid email</span>
+                                  </ng-container>
+                              </ng-container>
+                          </div>
+                          <div class="col col-sm-12 pt-3">
+                              <i class="fa-solid fa-lock"></i><label for="password" class="pl-1">Password:</label>
+                              <input type="password" id="password" formControlName="password"
+                                  placeholder="Enter password.." class="form-control form-control-sm">
+                              <ng-container *ngIf="password.touched && password.invalid">
+                                  <ng-container *ngIf="password?.errors?.required">
+                                      <span class="text-danger pt-2">Password required</span>
+                                  </ng-container>
+                              </ng-container>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col">
+                              <button type="submit" class="btn btn-primary w-100"
+                                  [disabled]="!this.signInForm.valid">Signin</button>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row mt-2">
+                          <div class="col-md col-sm-12">
+                            <h6 style="font-size: 16px;">You have not an Account? <a routerLink="/signup">Signup</a></h6>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
